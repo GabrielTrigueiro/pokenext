@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import Card from './components/Card'
 
 export async function getStaticProps() {
 
@@ -16,6 +17,7 @@ export async function getStaticProps() {
     element.id = index + 1
   });
 
+  // console.log(data)
 
   return{
     props: {
@@ -34,7 +36,7 @@ export default function Home({pokemons}) {
       </div>
       <div className={styles.pokemon_container}>
         {pokemons.map((pokemon) => (
-          <p key={pokemon.id}>{pokemon.name}</p>
+          <Card key={pokemon.id} pokemon={pokemon}/>
         ))}
       </div>
     </>
